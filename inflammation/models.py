@@ -42,6 +42,13 @@ def daily_min(data):
     return np.min(data, axis=0)
 
 
+def daily_std_dev(data):
+    """Calculate the daily std dev of a 2D inflammation data array for each day.
+    :param data: a 2D array containing inflammation data (each row contains a patient)
+    :returns: array with the st dev inflammation per day
+    """
+    return np.std(data, axis=0)
+
 class Observation:
     """Observation"""
     def __init__(self, day, value):
