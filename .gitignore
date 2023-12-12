@@ -12,3 +12,8 @@
 *.pyc
 *.egg-info
 .pytest_cache
+
+# packaging files
+dist/
+poetry.lock
+pyproject.toml
