@@ -54,17 +54,6 @@ def daily_above_threshold(data,threshold,patient_num):
     return reduce(lambda a, b: int(a) + int(b),above_threshold )
 
 
-def daily_above_threshold(data,threshold,patient_num):
-    """Calculate daily if threshold is exceeded per patient 2D inflammation data array for each day.
-    :param data: a 2D array containing inflammation data (each row contains a patient)
-    :param threshold: An inflammation threshold to check each daily value against
-    :param patient_num: Patient row number
-    :returns: a number of exceedance of the inflammation threshold per day
-    """
-    above_threshold = map(lambda x: x > threshold, data[patient_num])
-    return reduce(lambda a, b: int(a) + int(b),above_threshold )
-
-
 def daily_std_dev(data):
     """Calculate the daily std dev of a 2D inflammation data array for each day.
     :param data: a 2D array containing inflammation data (each row contains a patient)
