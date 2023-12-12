@@ -4,6 +4,16 @@ import numpy as np
 import numpy.testing as npt
 import pytest
 
+def complement(func):
+    def wrapper(*args, **kwargs):
+        print(f'Running the test {func.__name__}')
+        out = func(*args, **kwargs)
+        print(f'YEAH! Test completed!!')
+        return out
+    return wrapper
+
+
+@complement
 def test_daily_mean_zeros():
     """Test that mean function works for an array of zeros."""
     from inflammation.models import daily_mean
@@ -17,6 +27,7 @@ def test_daily_mean_zeros():
     npt.assert_array_equal(daily_mean(test_input), test_result)
 
 
+@complement
 def test_daily_mean_integers():
     """Test that mean function works for an array of positive integers."""
     from inflammation.models import daily_mean
@@ -30,6 +41,7 @@ def test_daily_mean_integers():
     npt.assert_array_equal(daily_mean(test_input), test_result)
 
 
+@complement
 def test_daily_min_string():
     """Test for TypeError when passing strings"""
     from inflammation.models import daily_min
