@@ -29,7 +29,6 @@ def main(args):
 
         views.visualize(view_data)
 
-        print(models.daily_above_threshold(inflammation_data,3,5))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
