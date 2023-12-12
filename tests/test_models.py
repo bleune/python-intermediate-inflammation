@@ -62,3 +62,22 @@ def test_daily_min(test, expected):
     """Test min function works for zeroes, positive integers, mix of positive/negative integers."""
     from inflammation.models import daily_min
     npt.assert_array_equal(daily_min(np.array(test)), np.array(expected))
+
+
+@pytest.mark.parametrize(
+    'test, expected',
+    [
+        (
+            [[0, 0, 0], [0, 0, 0], [0, 0, 0]], [0, 0, 0]
+        ),
+        (
+            [[1, 1, 1], [1, 1, 1], [1, 1, 1]], [0, 0, 0]
+        ),
+        (
+            [[0, 0, 0], [.5, .5, .5], [1, 1, 1]], [0.4082482904, 0.4082482904, 0.4082482904]
+        )
+    ]
+)
+def test_daily_std(test, expected):
+    from inflammation.models import daily_std_dev
+    npt.assert_almost_equal(daily_std_dev(np.array(test)), np.array(expected))
