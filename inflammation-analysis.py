@@ -25,15 +25,30 @@ def main(args):
             'average': models.daily_mean(inflammation_data),
             'max': models.daily_max(inflammation_data),
             'min': models.daily_min(inflammation_data),
-            'std dev': models.daily_std_dev(inflammation_data)
+            'std_dev': models.daily_std_dev(inflammation_data)
             }
 
         views.visualize(view_data)
+
+        if args.text:
+            print(f"\
+                  Summary of statistics:             \n\
+                  Average   : {view_data['average']} \n\
+                  Max       : {view_data['max']}     \n\
+                  Min       : {view_data['min']}     \n\
+                  Std dev   : {view_data['std_dev']} \n\
+                  ")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description='A basic patient inflammation data management system')
+    
+    parser.add_argument(
+        '--text',
+        dest='text',
+        action='store_true',
+        help='Show statistics in text on command line')
 
     parser.add_argument(
         'infiles',
