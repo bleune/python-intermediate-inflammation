@@ -90,12 +90,12 @@ class Doctor(Person):
         return self.name
     
 
-alice = Patient('Alice')
-print(alice)
+# alice = Patient('Alice')
+# print(alice)
 
-obs = alice.add_observation(3)
-print(obs)
+# obs = alice.add_observation(3)
+# print(obs)
 
-doctor = Doctor('Dr. Phil')
-doctor.add_patient(alice)
-print(doctor.patients)
+# doctor = Doctor('Dr. Phil')
+# doctor.add_patient(alice)
+# print(doctor.patients)
