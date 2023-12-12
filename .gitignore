@@ -17,3 +17,7 @@
 dist/
 poetry.lock
 pyproject.toml
+
+# Virtual environment
+venv/
+.venv/
